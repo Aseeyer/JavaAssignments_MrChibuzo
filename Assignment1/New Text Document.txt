@@ -1,0 +1,14 @@
+import java.util.Scanner;
+
+public class FindLength{
+    public static void main(String[] args){
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter Speed: ");
+        double speed = input.nextDouble();
+        System.out.print("Enter Acceleration: ");
+        double acceleration = input.nextDouble();
+
+        double length = Math.pow(v, 2)/2*(a);
+        System.out.printf("The minimum runway length for this airplan is %d%n", length);
+}
+}
