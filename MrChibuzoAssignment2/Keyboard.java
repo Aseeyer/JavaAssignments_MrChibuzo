@@ -17,7 +17,5 @@ public class Keyboard {
         }
 
         System.out.println(base + " raised to the power of " + exponent + " is: " + result);
-
-        input.close();
     }
 }

@@ -7,8 +7,7 @@ public class Factorial {
         System.out.print("Enter a number to find its factorial: ");
         int number = input.nextInt();
 
-        long factorial = 1;  // using long to handle larger results
-
+        long factorial = 1;  
         for (int i = 1; i <= number; i++) {
             factorial *= i;
         }
