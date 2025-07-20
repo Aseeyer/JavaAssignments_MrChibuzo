@@ -9,7 +9,7 @@ public class NokiaMenu {
     do {
         System.out.println("""
 
-              Welcome To Nokia 3310 Main Menu      
+              Welcome!! To Nokia 3310 Main Menu      
                                """);
         System.out.println(" 1. Phone book");
         System.out.println(" 2. Messages");
