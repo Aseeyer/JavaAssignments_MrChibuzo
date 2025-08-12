@@ -79,6 +79,24 @@ public class FunKata {
 
 
 
+     public static void countVowels() {
+        System.out.print("Enter a word: ");
+        String word = scanner.nextLine().toLowerCase();
+        int vowelCount = 0;
+
+        for (int index = 0; index < word.length(); index++) {
+            char letter = word.charAt(index);
+            if (letter == 'a' || letter == 'e' || letter == 'i' || letter == 'o' || letter == 'u') {
+                vowelCount++;
+            }
+        }
+
+        System.out.println("Vowels: " + vowelCount);
+    }
+
+
+
+
 
 
 
