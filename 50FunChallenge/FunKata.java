@@ -97,6 +97,15 @@ public class FunKata {
 
 
 
+    public static void divisibleBy3And5() {
+        for (int number = 1; number <= 20; number++) {
+            if (number % 3 == 0 && number % 5 == 0) {
+                System.out.println(number);
+            }
+        }
+    }
+
+
 
 
 
@@ -137,6 +146,8 @@ public class FunKata {
         countTo5();
         countingByTwos();
         countingUp();
+        countVowels();
+        divisibleBy3And5();
 
 
 
