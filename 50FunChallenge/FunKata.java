@@ -451,13 +451,20 @@ public class FunKata {
         System.out.println("Locked!");
     }
 
-    public static void starDiamond() {
-        System.out.println("*");
-        System.out.println("***");
-        System.out.println("*****");
-        System.out.println("***");
-        System.out.println("*");
+    public class StarDiamond {
+
+    public static void main(String[] args) {
+        int[] starsPerLine = {1, 3, 5, 3, 1};
+
+        for (int i = 0; i < starsPerLine.length; i++) {
+            for (int j = 0; j < starsPerLine[i]; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
     }
+    }
+
 
     public static void gradeAverage() {
         int total = 0;
