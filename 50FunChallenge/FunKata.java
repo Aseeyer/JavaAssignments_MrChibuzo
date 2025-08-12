@@ -142,6 +142,17 @@ public class FunKata {
 
 
 
+    public static void favoriteNumberGame() {
+        final int favoriteNumber = 7;
+        System.out.print("Guess my favorite number: ");
+        int guess = scanner.nextInt();
+
+        if (guess == favoriteNumber) {
+            System.out.println("That's my favorite number!");
+        } else {
+            System.out.println("Nice try, guess again!");
+        }
+    }
 
 
 
