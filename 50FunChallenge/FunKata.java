@@ -108,11 +108,36 @@ public class FunKata {
 
 
 
+     public static void isEvenOdd() {
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+
+        if (number % 2 == 0) {
+            System.out.println("Even!");
+        } else {
+            System.out.println("Odd!");
+        }
+    }
 
 
 
 
 
+     public static void factorCounter() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+
+        int factorCount = 0;
+
+        for (int possibleFactor = 1; possibleFactor <= number; possibleFactor++) {
+            if (number % possibleFactor == 0) {
+                factorCount++;
+            }
+        }
+
+        System.out.println("Factors: " + factorCount);
+    }
 
 
 
@@ -148,6 +173,10 @@ public class FunKata {
         countingUp();
         countVowels();
         divisibleBy3And5();
+        isEvenOdd();
+        factorCounter();
+
+
 
 
 
