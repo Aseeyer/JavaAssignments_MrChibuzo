@@ -157,7 +157,43 @@ public class FunKata {
 
 
 
+    public static void gradeAverage() {
+        int total = 0;
+        int count = 0;
 
+        while (count < 5) {
+            System.out.print("Enter score " + (count + 1) + " (0-100): ");
+            int score = scanner.nextInt();
+
+            if (score >= 0 && score <= 100) {
+                total += score;
+                count++;
+            } else {
+                System.out.println("Invalid score! Try again.");
+            }
+        }
+
+        double average = total / 5.0;
+        System.out.println("Average: " + average);
+    }
+
+
+
+
+    public static void gradeCalculator() {
+        System.out.print("Give me your test score (0-100): ");
+        int userInput = scanner.nextInt();
+
+        if (userInput >= 90) {
+            System.out.println("A!");
+        } else if (userInput >= 80 && userInput <= 89) {
+            System.out.println("B!");
+        } else if (userInput >= 70 && userInput <= 79) {
+            System.out.println("C!");
+        } else if (userInput < 70) {
+            System.out.println("F!");
+        }
+    }
 
 
 
@@ -186,6 +222,12 @@ public class FunKata {
         divisibleBy3And5();
         isEvenOdd();
         factorCounter();
+        favoriteNumberGame();
+        gradeAverage();
+        gradeCalculator();
+
+
+
 
 
 
