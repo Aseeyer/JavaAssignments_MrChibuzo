@@ -40,7 +40,6 @@ public class FunKata {
 
 
 
-
      public static void countDown() {
         for (int number = 10; number >= 1; number--) {
             System.out.println(number);
@@ -49,8 +48,33 @@ public class FunKata {
 
 
 
+     public static void countTo5() {
+        int count = 0;
+        for (int number = 1; number <= 5; number++) {
+            count += 1;
+            System.out.println("Number: " + count);
+        }
+    }
 
 
+
+
+    public static void countingByTwos() {
+        for (int number = 2; number <= 10; number++) {
+            if (number % 2 == 0) {
+                System.out.println(number);
+            }
+        }
+    }
+
+
+
+
+     public static void countingUp() {
+        for (int number = 1; number <= 7; number++) {
+            System.out.println(number);
+        }
+    }
 
 
 
@@ -92,6 +116,11 @@ public class FunKata {
         rideCheck();
         ageRestriction();
         countDown();
+        countTo5();
+        countingByTwos();
+        countingUp();
+
+
 
     }
 }
