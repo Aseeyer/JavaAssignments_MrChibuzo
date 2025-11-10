@@ -6,6 +6,7 @@ import exceptions.InvalidObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Officers implements OfficerRepository {
     private int count;
@@ -13,6 +14,7 @@ public class Officers implements OfficerRepository {
 
     @Override
     public Officer save(Officer officer) {
+        Objects.requireNonNull(officer, "officer must not be null");
         officers.add(officer);
         count++;
         return officer;
@@ -25,28 +27,24 @@ public class Officers implements OfficerRepository {
                 return officer;
             }
         }
-        throw new IdNotFoundException("Id not found");
+        throw new IdNotFoundException("Officer with id " + badgeNumber + " not found");
     }
 
     @Override
     public List<Officer> findAll() {
-        List<Officer> newOfficer = new ArrayList<>();
-        for(int count = 0; count < officers.size(); count++){
-            Officer officer1 = officers.get(count);
-            newOfficer.add(officer1);
-        }
-        return newOfficer;
+        return new ArrayList<>(officers);
     }
 
     @Override
     public void deleteById(int badgeNumber) {
-        for(int count = 0; count < officers.size(); count++){
-            if(officers.get(count).getBadgeNumber() == badgeNumber){
-                officers.remove(count);
+        for (int i = 0; i < officers.size(); i++) {
+            if (officers.get(i).getBadgeNumber() == badgeNumber) {
+                officers.remove(i);
+                count--;
                 return;
             }
         }
-        throw new IdNotFoundException("Id not found");
+        throw new IdNotFoundException("Officer with id " + badgeNumber + " not found");
     }
 
     @Override
@@ -56,21 +54,21 @@ public class Officers implements OfficerRepository {
 
     @Override
     public void deleteAll() {
-        if (!officers.isEmpty()) {
-            officers.subList(0, officers.size()).clear();
-        }
+        officers.clear();
+        count = 0;
     }
 
     @Override
     public Officer delete(Officer officer) {
-        for(int count = 0; count < officers.size(); count++){
-            Officer officer1 = officers.get(count);
-            if(officer.equals(officer1)){
-                officers.remove(count);
+        for (int i = 0; i < officers.size(); i++) {
+            Officer found = officers.get(i);
+            if (found.equals(officer)) {
+                officers.remove(i);
+                count--;
                 return officer;
             }
         }
-        throw new InvalidObject("Not found");
+        throw new InvalidObject("Officer not found for deletion");
     }
 
     @Override

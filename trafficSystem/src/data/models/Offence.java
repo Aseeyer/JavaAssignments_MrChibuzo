@@ -7,6 +7,7 @@ public enum Offence {
     OVER_SPEEDING(3000);
 
     private final double charge;
+
     Offence(double charge) {
         this.charge = charge;
     }
@@ -15,5 +16,8 @@ public enum Offence {
         return charge;
     }
 
+    @Override
+    public String toString() {
+        return name().replace('_', ' ');
+    }
 }
-

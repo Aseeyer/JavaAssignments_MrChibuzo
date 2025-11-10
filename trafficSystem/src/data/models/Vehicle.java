@@ -12,9 +12,17 @@ public class Vehicle {
     private String color;
     private String plateNumber;
     private Owner owner;
-    private List<Ticket> tickets;
+    private final List<Ticket> tickets;
 
     public Vehicle(int id, String name, String model, String color) {
+        this.id = id;
+        this.name = name;
+        this.model = model;
+        this.color = color;
+        this.tickets = new ArrayList<>();
+    }
+
+    public Vehicle(int id, String name, String model, Year year, String color, String plateNumber, Owner owner) {
         this.id = id;
         this.name = name;
         this.model = model;
@@ -85,22 +93,27 @@ public class Vehicle {
     }
 
     public void setTickets(List<Ticket> tickets) {
-        this.tickets = tickets;
+        this.tickets.clear();
+        if (tickets != null) {
+            this.tickets.addAll(tickets);
+        }
     }
 
     public void addTicket(Ticket ticket) {
-        this.tickets.add(ticket);
+        if (ticket != null) {
+            this.tickets.add(ticket);
+        }
     }
 
     @Override
     public String toString() {
         return "Vehicle{" +
-                "name='" + name + '\'' +
-                ", model='" + model + '\'' +
-                ", year=" + year +
-                ", color='" + color + '\'' +
-                ", plateNumber='" + plateNumber + '\'' +
-                ", owner=" + owner.getOwnerName() +
+                "name='" + (name != null ? name : "N/A") + '\'' +
+                ", model='" + (model != null ? model : "N/A") + '\'' +
+                ", year=" + (year != null ? year : "N/A") +
+                ", color='" + (color != null ? color : "N/A") + '\'' +
+                ", plateNumber='" + (plateNumber != null ? plateNumber : "N/A") + '\'' +
+                ", owner=" + (owner != null ? owner.getOwnerName() : "N/A") +
                 ", ticketsCount=" + tickets.size() +
                 '}';
     }
@@ -108,6 +121,4 @@ public class Vehicle {
     public void displayInfo() {
         System.out.println(this.toString());
     }
-
-
 }

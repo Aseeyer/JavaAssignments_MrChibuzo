@@ -5,14 +5,12 @@ import java.util.List;
 
 public interface VehiclesRepository {
     Vehicle save(Vehicle vehicle);
-
     int getSize();
-
+    List<Vehicle> getVehicles();
     Vehicle findById(int id);
     List<Vehicle> findAll();
     void deleteById(int id);
     void deleteAll();
     Vehicle delete(Vehicle vehicle);
     long count();
-
 }

@@ -1,18 +1,13 @@
 package data.models;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Officer {
     private int badgeNumber;
     private String officerName;
     private String rank;
     private Gender gender;
 
-    public Officer(int badgeNumber, String officerName, String rank, List<Ticket> tickets) {
+    public Officer(int badgeNumber) {
         this.badgeNumber = badgeNumber;
-        this.officerName = officerName;
-        this.rank = rank;
     }
 
     public int getBadgeNumber() {
@@ -42,19 +37,18 @@ public class Officer {
     public Gender getGender() {
         return gender;
     }
+
     public void setGender(Gender gender) {
         this.gender = gender;
     }
-
-
 
     @Override
     public String toString() {
         return "Officer{" +
                 "badgeNumber=" + badgeNumber +
-                ", officerName='" + officerName + '\'' +
-                ", rank='" + rank +
+                ", officerName='" + (officerName != null ? officerName : "N/A") + '\'' +
+                ", rank='" + (rank != null ? rank : "N/A") + '\'' +
+                ", gender=" + (gender != null ? gender : "N/A") +
                 '}';
     }
-
 }

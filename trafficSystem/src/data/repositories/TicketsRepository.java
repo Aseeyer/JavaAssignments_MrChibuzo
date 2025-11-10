@@ -1,4 +1,3 @@
-
 package data.repositories;
 
 import data.models.Ticket;

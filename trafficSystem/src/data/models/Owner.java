@@ -8,8 +8,6 @@ public class Owner {
     private Gender gender;
     private String email;
 
-
-
     public Owner(String id, String ownerName, String address, String phone, Gender gender, String email) {
         this.id = id;
         this.ownerName = ownerName;
@@ -70,9 +68,9 @@ public class Owner {
     @Override
     public String toString() {
         return "Owner{" +
-                "id='" + id + '\'' +
-                ", name='" + ownerName + '\'' +
-                ", gender=" + gender +
+                "id='" + (id != null ? id : "N/A") + '\'' +
+                ", name='" + (ownerName != null ? ownerName : "N/A") + '\'' +
+                ", gender=" + (gender != null ? gender : "N/A") +
                 '}';
     }
 }

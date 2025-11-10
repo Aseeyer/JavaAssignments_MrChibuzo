@@ -6,15 +6,20 @@ import exceptions.IdNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Vehicles implements VehiclesRepository{
-    private int count;
+public class Vehicles implements VehiclesRepository {
+    private int count = 0;
     private final List<Vehicle> vehicles = new ArrayList<>();
 
     @Override
     public Vehicle save(Vehicle vehicle) {
+        generateId(vehicle);
         vehicles.add(vehicle);
-        count++;
         return vehicle;
+    }
+
+    private void generateId(Vehicle vehicle) {
+        count++;
+        vehicle.setId(count);
     }
 
     @Override
@@ -22,61 +27,46 @@ public class Vehicles implements VehiclesRepository{
         return vehicles.size();
     }
 
+    @Override
     public List<Vehicle> getVehicles() {
-        return vehicles;
+        return new ArrayList<>(vehicles);
     }
 
     @Override
     public Vehicle findById(int id) {
-        for(int count = 0; count < vehicles.size(); count++){
-            Vehicle vehicle = vehicles.get(count);
-            if(vehicle.getId() == id){
-                return vehicle;
-            }
-        }
-        throw new IdNotFoundException("Vehicle with id " + id + " not found");
+        return vehicles.stream()
+                .filter(vehicle -> vehicle.getId() == id)
+                .findFirst()
+                .orElseThrow(() -> new IdNotFoundException("Vehicle with id " + id + " not found"));
     }
 
     @Override
     public List<Vehicle> findAll() {
-        List<Vehicle> Vehicles = new ArrayList<>();
-        for(int count = 0; count <  vehicles.size(); count++){
-            Vehicle vehicle = vehicles.get(count);
-            Vehicles.add(vehicle);
-        }
-        return Vehicles;
+        return new ArrayList<>(vehicles);
     }
 
     @Override
     public void deleteById(int id) {
-        for(int count = 0; count < vehicles.size(); count++){
-            if(vehicles.get(count).getId() == id){
-                vehicles.remove(count);
-                return;
-            }
+        boolean removed = vehicles.removeIf(vehicle -> vehicle.getId() == id);
+        if (!removed) {
+            throw new IdNotFoundException("Vehicle with id " + id + " not found");
         }
-        throw new IdNotFoundException("Vehicle with id " + id + " not found");
     }
 
     @Override
     public void deleteAll() {
-        for(int count = vehicles.size() - 1; count >= 0; count--) vehicles.remove(count);
+        vehicles.clear();
+        count = 0;
     }
 
     @Override
     public Vehicle delete(Vehicle vehicle) {
-        for(int count = 0; count < vehicles.size(); count++){
-            Vehicle vehicle1 = vehicles.get(count);
-            if(vehicle1.equals(vehicle)){
-                vehicles.remove(count);
-                return vehicle1;
-            }
-        }
-        return null;
+        boolean removed = vehicles.remove(vehicle);
+        return removed ? vehicle : null;
     }
 
     @Override
     public long count() {
-        return count;
+        return vehicles.size();
     }
 }

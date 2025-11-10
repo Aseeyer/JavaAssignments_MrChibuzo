@@ -11,14 +11,8 @@ public class Ticket {
     private LocalDateTime dateOfBooking;
     private LocalDateTime dateOfPayment;
 
-    public Ticket(int id, Vehicle vehicle, Offence offence, Officer issuer, LocalDateTime dateOfBooking, LocalDateTime dateOfPayment) {
+    public Ticket(int id) {
         this.id = id;
-        this.vehicle = vehicle;
-        this.offence = offence;
-        this.issuer = issuer;
-        this.dateOfBooking = dateOfBooking;
-        this.hasPaid = false;
-        this.dateOfPayment = null;
     }
 
     public int getId() {
@@ -45,7 +39,7 @@ public class Ticket {
         this.offence = offence;
     }
 
-    public boolean isHasPaid() {
+    public boolean isPaid() {
         return hasPaid;
     }
 
@@ -85,13 +79,13 @@ public class Ticket {
     @Override
     public String toString() {
         return "Ticket{" +
-                "id='" + id + '\'' +
-                ", vehiclePlate='" + vehicle.getPlateNumber() + '\'' +
-                ", offence=" + offence +
+                "id=" + id +
+                ", vehiclePlate='" + (vehicle != null ? vehicle.getPlateNumber() : "N/A") + '\'' +
+                ", offence=" + (offence != null ? offence : "N/A") +
                 ", hasPaid=" + hasPaid +
-                ", issuer='" + issuer.getOfficerName() + '\'' +
-                ", dateOfBooking=" + dateOfBooking +
-                ", dateOfPayment=" + dateOfPayment +
+                ", issuer='" + (issuer != null ? issuer.getOfficerName() : "N/A") + '\'' +
+                ", dateOfBooking=" + (dateOfBooking != null ? dateOfBooking : "N/A") +
+                ", dateOfPayment=" + (dateOfPayment != null ? dateOfPayment : "N/A") +
                 '}';
     }
 }
