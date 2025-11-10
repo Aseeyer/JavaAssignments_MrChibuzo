@@ -7,7 +7,7 @@ import exceptions.InvalidObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Officers implements OfficerRepositories{
+public class Officers implements OfficerRepository {
     private int count;
     private final List<Officer> officers = new ArrayList<>();
 

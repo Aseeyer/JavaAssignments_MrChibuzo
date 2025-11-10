@@ -1,6 +1,5 @@
 package data.models;
 
-import java.sql.Array;
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +14,7 @@ public class Vehicle {
     private Owner owner;
     private List<Ticket> tickets;
 
-    public Vehicle(int id, String name, String model, Year year, String color, String plateNumber, Owner owner) {
+    public Vehicle(int id, String name, String model, String color) {
         this.id = id;
         this.name = name;
         this.model = model;

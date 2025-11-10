@@ -3,7 +3,7 @@ package data.models;
 import java.time.LocalDateTime;
 
 public class Ticket {
-    private String id;
+    private int id;
     private Vehicle vehicle;
     private Offence offence;
     private boolean hasPaid;
@@ -11,7 +11,7 @@ public class Ticket {
     private LocalDateTime dateOfBooking;
     private LocalDateTime dateOfPayment;
 
-    public Ticket(String id, Vehicle vehicle, Offence offence, Officer issuer, LocalDateTime dateOfBooking, LocalDateTime dateOfPayment) {
+    public Ticket(int id, Vehicle vehicle, Offence offence, Officer issuer, LocalDateTime dateOfBooking, LocalDateTime dateOfPayment) {
         this.id = id;
         this.vehicle = vehicle;
         this.offence = offence;
@@ -21,11 +21,11 @@ public class Ticket {
         this.dateOfPayment = null;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

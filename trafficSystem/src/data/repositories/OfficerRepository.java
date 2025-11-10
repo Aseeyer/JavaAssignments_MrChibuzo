@@ -2,7 +2,7 @@ package data.repositories;
 import data.models.Officer;
 import java.util.List;
 
-public interface OfficerRepositories {
+public interface OfficerRepository {
     Officer save(Officer officer);
     Officer findById(int id);
     List<Officer> findAll();
