@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Vehicle {
+    private int id;
     private String name;
     private String model;
     private Year year;
@@ -14,7 +15,8 @@ public class Vehicle {
     private Owner owner;
     private List<Ticket> tickets;
 
-    public Vehicle(String name, String model, Year year, String color, String plateNumber, Owner owner) {
+    public Vehicle(int id, String name, String model, Year year, String color, String plateNumber, Owner owner) {
+        this.id = id;
         this.name = name;
         this.model = model;
         this.year = year;
@@ -22,6 +24,13 @@ public class Vehicle {
         this.plateNumber = plateNumber;
         this.owner = owner;
         this.tickets = new ArrayList<>();
+    }
+
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
