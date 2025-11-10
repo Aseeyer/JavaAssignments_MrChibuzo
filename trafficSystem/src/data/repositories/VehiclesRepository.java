@@ -12,7 +12,7 @@ public interface VehiclesRepository {
     List<Vehicle> findAll();
     void deleteById(int id);
     void deleteAll();
-    void delete(Vehicle vehicle);
+    Vehicle delete(Vehicle vehicle);
     long count();
 
 }
